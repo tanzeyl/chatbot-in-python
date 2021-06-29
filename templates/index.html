@@ -1,39 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="../static/style.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <title>ChatBot</title>
-    </head>
-    <body>
-        <h1>Chatter Bot</h1>
-        <div id="chatbox">
-            <p class="botTest"><span>Hi! I am a Chatter Bot.</span></p>
-        </div>
-        <div id="userInput">
-            <input id="textInput" type="text" name="msg" placeholder="Enter message!">
-            <input id="buttonInput" type="submit" value="Send">
-        </div>
-        <script>
-            function getresponse()
-            var rawText = $("&textInput").val();
-            var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
-            $("#textInput").val("");
-            $("#chatbox").append(botHtml);
-            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-            $.get("/get", { msg: rawText }).done(function(data) {
-                var botHtml = '<p class="botText"><span>' + data + '</span></p>';
-                $("#chatbox").append(botHtml);
-                document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-            });
-            $("#textInput").keypress(function(e) {
-                if(e.which == 13) {
-                    getBotResponse();
-                }
-            });
-            $("&buttonInput").click(function() {
-                getBotResponse();
-            });
-        </script>
-    </body>
+<head>
+    <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/style.css">
+<title>ChatBot</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="index.html" class="navbar-brand"><p>ChatBot</p></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="signup.html"><span class="glyphicon glyphicon-user"> Sign-Up</span></a></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-log-in"> Log-In</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav><br><br><br>
+<div>
+<div id = "chatbox">
+<p class = "botText"><span>Let's have a good talk. Shall we?</span></p>
+</div>
+<div id = "userInput">
+<input id ="textInput" type ="text" name="msg" placeholder="Say Something!">
+<input id = "buttonInput" type = "submit" value="Send">
+</div>
+<script>
+function getBotResponse(){
+var rawText = $("#textInput").val();
+var userHtml = '<p class = "userText"><span>' + rawText + '</span></p>';
+$("#textInput").val("");
+$("#chatbox").append(userHtml);
+document.getElementById('userInput').scrollIntoView({block:'start',behaviour:'smooth'});
+$.get("/get", {msg:rawText }).done(function(data) {
+var botHtml = '<p class ="botText"><span>' + data + '</span></p>';
+$("#chatbox").append(botHtml);
+document.getElementById('userInput').scrollIntoView({block : 'start',behaviour:'smooth'});
+});
+}
+$("#textInput").keypress(function(e) {
+if(e.which == 13) {
+getBotResponse();
+}
+});
+$("#buttonInput").click(function() {
+getBotResponse();
+})
+</script>
+</div>
+</body>
 </html>
