@@ -9,11 +9,11 @@ trainer = ChatterBotCorpusTrainer(english_bot)
 trainer.train("chatterbot.corpus.english")
 trainer.train("data/data.yml")
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/index",methods = ["GET","POST"])
+@app.route("/get",methods=['GET'])
 def get_bot_response():
     userText = request.args.get("msg")
     return str(english_bot.get_response(userText))
