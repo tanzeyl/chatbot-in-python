@@ -3,6 +3,7 @@ chatterbot-corpus==1.2.0
 click==8.0.1
 colorama==0.4.4
 Flask==2.0.1
+gunicorn==20.1.0
 itsdangerous==2.0.1
 Jinja2==3.0.1
 joblib==1.0.1
@@ -21,6 +22,4 @@ regex==2021.4.4
 six==1.16.0
 SQLAlchemy==1.2.19
 tqdm==4.61.1
-gunicorn==20.0.4
 Werkzeug==2.0.1
-nltk==3.6.2
