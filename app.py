@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-from time import sleep
-import sys
+import nltk
 
 app = Flask(__name__)
 
