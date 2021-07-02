@@ -17,31 +17,15 @@
 		</div>
 	</nav><br><br><br>
 <div>
-<div id = "chatbox">
-<p class = "botText"><span>Hey there, lonely human! Let's have a good talk. Shall we?</span></p>
-</div>
-<div id = "userInput">
-<input id ="textInput" type ="text" name="msg" placeholder="Say Something!" class="typefield"><br>
-<span class="indicator">...</span>
-<input id = "buttonInput" type = "submit" value="Send">
-</div>
+    <div id = "chatbox">
+        <p class = "botText"><span>Hey there, lonely human! Let's have a good talk. Shall we?</span></p>
+    </div>
+    <div id = "userInput">
+        <input id ="textInput" class="navbar-fixed-bottom" type ="text" name="msg" placeholder="Say Something!" class="typefield"><br>
+        <span class="indicator">...</span>
+        <input id = "buttonInput" class="navbar-fixed-bottom" type = "submit" value="Send">
+    </div>
 <script>
-!function(){ 
-    var typeState = {
-        typing: null
-        , init: function(textField, indicator){ 
-            $(textField).bind('keypress', function(e) {
-                if(typeState.typing) {
-                    window.clearTimeout(typeState.typing);
-                    typeState.typing = null;
-                    $(indicator).show();
-                }
-                typeState.typing = window.setTimeout(function(){ $(indicator).hide(); }, 333);
-            });            
-        }
-    };
-    typeState.init('.typefield', '.indicator');
-}();
 function getBotResponse(){
 var rawText = $("#textInput").val();
 var userHtml = '<p class = "userText"><span>' + rawText + '</span></p>';
