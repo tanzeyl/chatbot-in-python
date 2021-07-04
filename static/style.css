@@ -25,6 +25,7 @@ body {
     font-size: 25px;
     position: fixed;
     margin-right: 100px;
+    height: 100px;
 }
 
 #buttonInput {
@@ -37,6 +38,7 @@ body {
     color: white;
     margin-left: 1220px;
     position: fixed;
+    height: 100px;
 }
 
 .userText {
