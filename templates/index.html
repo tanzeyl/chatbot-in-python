@@ -4,7 +4,13 @@
     <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../static/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <title>ChatBot</title>
 </head>
 <body>
@@ -14,26 +20,29 @@
 				<a href="https://entertainment-chatbot-python.herokuapp.com/" class="navbar-brand"><p>ChatBot</p></a>
 			</div>
 		</div>
-	</nav><br><br><br>
-<div id="banner-img">
-    <div>
+	</nav>
+    <br><br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2 border-box">
+                <p style="color: white; text-align: center; font-size: 12px;"><i>Hello! This is an entertainment chatbot made to help you pass-time. Ask it about websites that may help pass your time.</i></p>
+                <div class="border-box">
     <div id = "chatbox">
-        <p class = "botText"><span>Hey there, lonely human! Let's have a good talk. Shall we?</span></p>
+        <p class = "botText"><span class="glyphicon glyphicon-phone"></span>Hey there, lonely human! Let's talk.</p>
     </div>
     <div id = "userInput">
         <input id ="textInput" class="navbar-fixed-bottom" type ="text" name="msg" placeholder="Say Something!" class="typefield"><br>
-        <span class="indicator">...</span>
         <input id = "buttonInput" class="navbar-fixed-bottom" type = "submit" value="Send">
     </div>
 <script>
 function getBotResponse(){
 var rawText = $("#textInput").val();
-var userHtml = '<p class = "userText"><span>' + rawText + '</span></p>';
+var userHtml = '<p class = "userText">' + rawText + '<span class="glyphicon glyphicon-user"></span></p>';
 $("#textInput").val("");
 $("#chatbox").append(userHtml);
 document.getElementById('userInput').scrollIntoView({block:'start',behaviour:'smooth'});
 $.get("/get", {msg:rawText }).done(function(data) {
-var botHtml = '<p class ="botText"><span>' + data + '</span></p>';
+var botHtml = '<p class ="botText"><span class="glyphicon glyphicon-phone">' + data + '</span></p>';
 $("#chatbox").append(botHtml);
 document.getElementById('userInput').scrollIntoView({block : 'start',behaviour:'smooth'});
 });
@@ -48,6 +57,8 @@ getBotResponse();
 })
 </script>
 </div>
-</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
